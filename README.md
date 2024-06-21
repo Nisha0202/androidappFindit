@@ -1,4 +1,4 @@
-#Features
+## Features
 1. **In-App Advertising for Revenue**: FindIt generates revenue through in-app advertising, displaying targeted ads relevant to student life and campus services. This model allows the app to remain free for users.
 
 2. **Daily Tailored Advertisements**: The app shows one specific, targeted ad each day to minimize intrusion and maximize ad effectiveness.
@@ -21,3 +21,6 @@
 
 View:
 ![Slide 16_9 - 1](https://github.com/Nisha0202/androidappFindit/assets/99580632/e5480424-49f9-4a2b-a604-e5bcfb9e9b38)
+
+## WireFrame
+![WireFrame](https://github.com/Nisha0202/androidappFindit/assets/99580632/ac638bbc-6d07-4e1b-8c8f-d3b1193a7af0)
