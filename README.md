@@ -1,5 +1,5 @@
 ## Video
-Uploading FinditApp - Made with Clipchamp.mp4…
+https://github.com/Nisha0202/androidappFindit/assets/99580632/e39120f0-9fa5-439b-9b98-4673f2beb8c9
 
 ## Features
 1. **In-App Advertising for Revenue**: FindIt generates revenue through in-app advertising, displaying targeted ads relevant to student life and campus services. This model allows the app to remain free for users.
