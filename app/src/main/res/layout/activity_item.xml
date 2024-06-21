@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="130dp"
+    android:background="@drawable/edittext_style"
+    android:layout_marginBottom="8dp"
+    android:paddingVertical="16dp"
+    android:paddingHorizontal="8dp">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imageView"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_margin="4sp"
+        app:civ_border_color="#ABB2B9"
+        app:civ_border_width="1dp"
+        android:src="@drawable/ic_launcher_background"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:fontFamily="@font/imprima_regular"/>
+
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:text="Title of Item"
+        android:textColor="#3d3d3d"
+        android:layout_marginBottom="18sp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/imageView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/statusTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="#3d3d3d"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Status"
+        android:layout_marginBottom="12sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/dateTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18sp"
+        android:layout_marginTop="8dp"
+        android:text="Date"
+        android:textColor="#3d3d3d"
+        app:layout_constraintStart_toEndOf="@id/imageView"
+        app:layout_constraintTop_toBottomOf="@id/titleTextView" />
+
+    <TextView
+        android:id="@+id/timeTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Time"
+        android:textColor="#3d3d3d"
+        app:layout_constraintStart_toEndOf="@id/dateTextView"
+        app:layout_constraintTop_toBottomOf="@id/titleTextView" />
+
+    <TextView
+        android:id="@+id/locationTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18sp"
+        android:layout_marginTop="8dp"
+        android:text="Location"
+        android:textColor="#3d3d3d"
+        app:layout_constraintEnd_toEndOf="@id/statusTextView"
+        app:layout_constraintTop_toBottomOf="@id/titleTextView" />
+
+    <TextView
+        android:id="@+id/nameTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18sp"
+        android:layout_marginTop="8dp"
+        android:textStyle="italic"
+        android:text="Posted by Name"
+        android:textColor="#3d3d3d"
+        app:layout_constraintStart_toEndOf="@id/imageView"
+        app:layout_constraintTop_toBottomOf="@id/dateTextView" />
+
+<!--    <TextView-->
+<!--        android:id="@+id/contactTextView"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Contact"-->
+<!--        android:layout_marginTop="4dp"-->
+<!--        android:fontFamily="@font/imprima_regular"-->
+<!--        android:textColor="#28DF45"-->
+<!--        android:textSize="14sp"-->
+<!--        app:layout_constraintStart_toStartOf="@id/nameTextView"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/nameTextView" />-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    <!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="140dp"-->
+<!--    android:textColor="@color/black"-->
+<!--    tools:context=".ItemActivity"-->
+<!--    android:background="@drawable/edittext_style"-->
+<!--    android:layout_marginBottom="6dp"-->
+<!--    android:paddingVertical="16dp"-->
+<!--    android:paddingHorizontal="8dp">-->
+
+<!--    <de.hdodenhof.circleimageview.CircleImageView-->
+<!--        android:id="@+id/imageView"-->
+<!--        android:layout_width="90dp"-->
+<!--        android:layout_height="90dp"-->
+<!--        android:layout_margin="4sp"-->
+<!--        app:civ_border_color="#ABB2B9"-->
+<!--        app:civ_border_width="1dp"-->
+<!--        android:src="@drawable/ic_launcher_background"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        android:fontFamily="@font/imprima_regular"/>-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/titleTextView"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="16dp"-->
+<!--        android:layout_marginTop="4dp"-->
+<!--        android:text="Title of Item"-->
+<!--        android:textColor="#3d3d3d"-->
+<!--        android:layout_marginBottom="12sp"-->
+<!--        android:textSize="20sp"-->
+<!--        android:textStyle="bold"-->
+<!--        app:layout_constraintStart_toEndOf="@id/imageView"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+<!--    <TextView-->
+<!--        android:id="@+id/statusTextView"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:textSize="18sp"-->
+<!--        android:textColor="#3d3d3d"-->
+<!--        android:layout_marginEnd="16dp"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        android:text="Status"-->
+<!--        android:layout_marginBottom="12sp"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"/>-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/dateTextView"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="18sp"-->
+<!--        android:layout_marginTop="4dp"-->
+<!--        android:text="Date"-->
+<!--        android:textColor="#3d3d3d"-->
+<!--        app:layout_constraintStart_toEndOf="@id/imageView"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/titleTextView" />-->
+<!--    <TextView-->
+<!--        android:id="@+id/locationTextView"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="18sp"-->
+<!--        android:layout_marginTop="4dp"-->
+<!--        android:text="Location"-->
+<!--        android:textColor="#3d3d3d"-->
+<!--        app:layout_constraintEnd_toEndOf="@id/statusTextView"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/titleTextView" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/nameTextView"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="18sp"-->
+<!--        android:layout_marginTop="4dp"-->
+<!--        android:textStyle="italic"-->
+<!--        android:text="Posted by Name"-->
+<!--        android:textColor="#3d3d3d"-->
+<!--        app:layout_constraintStart_toEndOf="@id/imageView"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/dateTextView" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/contactTextView"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Contact"-->
+<!--        android:layout_marginTop="4dp"-->
+<!--        android:fontFamily="@font/imprima_regular"-->
+<!--        android:textColor="#28DF45"-->
+<!--        android:textSize="14sp"-->
+<!--        app:layout_constraintStart_toStartOf="@id/nameTextView"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/nameTextView" />-->
+
+<!--</androidx.constraintlayout.widget.ConstraintLayout>-->

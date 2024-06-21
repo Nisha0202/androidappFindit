@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LogInActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <TextView android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:gravity="center"
+            android:text="Findit"
+
+            android:background="#efeded"
+            android:textColor="#444"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/imprima_regular"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="bottom"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="40sp">
+
+
+                <EditText
+                    android:id="@+id/etStId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edittext_style"
+                    android:hint="Student ID"
+                    android:textColor="#3d3d3d"
+                    android:textColorHint="#808080"
+                    android:padding="12sp"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/etPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edittext_style"
+                    android:hint="Password"
+                    android:padding="12sp"
+                    android:textSize="20sp"
+                    android:textColor="#3d3d3d"
+                    android:textColorHint="#808080"
+                    android:inputType="textPassword"
+                    android:layout_marginTop="8sp"/>
+
+
+                <CheckBox
+                    android:id="@+id/cbRememberMe"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Remember Me"
+                    android:textColor="#808080"
+                    android:textSize="14sp"
+                    android:layout_marginVertical="3dp"/>
+                <Button
+                    android:id="@+id/btnSaveLogIn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#efeded"
+                    android:gravity="center"
+                    android:paddingVertical="12sp"
+                    android:text="Log In"
+                    android:textColor="#28DF45"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:cornerRadius="12dp"
+                    android:layout_marginTop="10sp"
+                    android:layout_marginBottom="14dp"/>
+            </LinearLayout>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
