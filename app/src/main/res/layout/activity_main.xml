@@ -16,7 +16,7 @@
             android:text="Findit"
             android:background="#efeded"
             android:textColor="#444"
-            android:textSize="30sp"
+            android:textSize="22sp"
             android:textStyle="bold"
             android:fontFamily="@font/imprima_regular"/>
         <LinearLayout
@@ -24,7 +24,7 @@
             android:layout_height="match_parent"
             android:layout_gravity="bottom"
             android:orientation="vertical"
-            android:padding="40sp"
+            android:padding="20sp"
             android:gravity="center">
             <Button
                 android:id="@+id/btnLogin"
@@ -33,9 +33,9 @@
                 android:backgroundTint="#efeded"
                 android:gravity="center"
                 android:text="Log In"
-                android:paddingVertical="12sp"
+
                 android:textColor="@color/black"
-                android:textSize="20sp"
+                android:textSize="14sp"
                 android:textStyle="bold"
                 android:layout_marginBottom="18sp"
                 app:cornerRadius="12dp"/>
@@ -45,11 +45,11 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="#efeded"
                 android:gravity="center"
-                android:paddingVertical="12sp"
+
                 android:text="Sign Up"
                 app:cornerRadius="12dp"
                 android:textColor="#28DF45"
-                android:textSize="20sp"
+                android:textSize="14sp"
                 android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>

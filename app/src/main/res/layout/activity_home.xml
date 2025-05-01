@@ -18,7 +18,7 @@
         android:text="Findit"
         android:textColor="#444"
         android:background="#efeded"
-        android:textSize="22sp"
+        android:textSize="18sp"
         android:textStyle="bold"
         android:fontFamily="@font/imprima_regular"
         app:layout_constraintTop_toTopOf="parent"
@@ -28,10 +28,11 @@
     <Button
         android:id="@+id/menuButton"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:text="≣"
-        android:gravity="end"
-        android:textSize="32sp"
+        android:paddingLeft="18dp"
+        android:gravity="end|center_vertical"
+        android:textSize="18sp"
         android:textColor="@color/black"
         android:backgroundTint="#efeded"
         app:layout_constraintTop_toTopOf="parent"
@@ -52,11 +53,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"
-            android:padding="16sp"
+            android:padding="20sp"
             android:gravity="center"
             android:text="Home"
             android:textColor="#A9A9A9"
-            android:textSize="16sp"
+            android:textSize="12sp"
             android:clickable="true"
             android:background="?android:attr/selectableItemBackground"/>
 
@@ -64,12 +65,12 @@
             android:id="@+id/navLost"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="16sp"
+            android:padding="20sp"
             android:gravity="center"
             android:text="Lost"
             android:textStyle="bold"
             android:textColor="#A9A9A9"
-            android:textSize="16sp"
+            android:textSize="12sp"
             android:clickable="true"
             android:background="?android:attr/selectableItemBackground"/>
 
@@ -77,12 +78,12 @@
             android:id="@+id/navFound"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="16sp"
+            android:padding="20sp"
             android:gravity="center"
             android:text="Found"
             android:textColor="#A9A9A9"
             android:textStyle="bold"
-            android:textSize="16sp"
+            android:textSize="12sp"
             android:clickable="true"
             android:background="?android:attr/selectableItemBackground"/>
     </LinearLayout>
@@ -92,9 +93,8 @@
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginHorizontal="14sp"
+        android:layout_marginHorizontal="12sp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toTopOf="@id/bottomImageView"
         app:layout_constraintTop_toBottomOf="@id/navBar"
         app:layout_constraintVertical_bias="0.0"
         tools:layout_editor_absoluteX="0dp" />
@@ -111,19 +111,19 @@
     android:background="@drawable/edittext_style"
     app:tint="#28DF45"
     app:backgroundTint="@color/white"
-    app:layout_constraintBottom_toBottomOf="@id/recyclerView"
+    app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:shapeAppearanceOverlay="@style/CircularShape" />
 
     <!-- Ads -->
-    <ImageView
-        android:id="@+id/bottomImageView"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:src="@drawable/adscustome_image"
-        android:scaleType="fitXY"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+<!--    <ImageView-->
+<!--        android:id="@+id/bottomImageView"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:src="@drawable/adscustome_image"-->
+<!--        android:scaleType="fitXY"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

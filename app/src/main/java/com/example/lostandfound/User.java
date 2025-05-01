@@ -3,15 +3,15 @@ package com.example.lostandfound;
 
 
 public class User {
-    public String email, username, password, stId;
+    public String email, username, stId;
 
-    public String getStId() {
-        return stId;
-    }
-
-    public void setStId(String stId) {
-        this.stId = stId;
-    }
+//    public String getStId() {
+//        return stId;
+//    }
+//
+//    public void setStId(String stId) {
+//        this.stId = stId;
+//    }
     public String getEmail() {
         return email;
     }
@@ -28,21 +28,21 @@ public class User {
         this.username = username;
     }
 
-    public String getPassword() {
-        return password;
-    }
+//    public String getPassword() {
+//        return password;
+//    }
+//
+//    public void setPassword(String password) {
+//        this.password = password;
+//    }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
 
 
+    public User( String email, String username) {
 
-    public User(String stId, String email, String username, String password) {
-        this.stId = stId;
         this.email = email;
         this.username = username;
-        this.password = password;
+
 
     }
 

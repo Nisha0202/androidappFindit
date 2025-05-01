@@ -20,6 +20,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -261,12 +262,15 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void performLogout() {
+        // Sign out from Firebase
+        FirebaseAuth.getInstance().signOut();
         dbHelper.deleteAllData();
         // Clear all saved preferences except for StId and Password
         SharedPreferences.Editor editor = prefs.edit();
         editor.remove("IsLoggedIn");
         if (!prefs.getBoolean("RememberMe", false)) {
             editor.remove("Username");
+            editor.putString("Password", prefs.getString("Password", ""));
             editor.remove("Email");
         }
         editor.apply();

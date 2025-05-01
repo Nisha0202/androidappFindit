@@ -57,17 +57,19 @@ import android.widget.Toast;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import java.lang.Thread;
-
+import android.app.TimePickerDialog;
+import android.widget.TimePicker;
 public class CreatePostActivity extends AppCompatActivity {
    private EditText usern;
    private DBHelper dbHelper;
-   private EditText  itemName, desc, etdate, ettime, location, etEmail;
+   private EditText  itemName, desc, etdate, location, etEmail;
     DatabaseReference databaseReference;
     StorageReference storageReference;
     Uri image;
     RadioButton lost, found;
     Button selectImage;
     ImageView imageView;
+    private EditText ettime;
     String status = ""; private String key;
     private Button save, back, saveDraft; RadioGroup radioGroup;
     String errors = ""; SharedPreferences prefs; private String oldImageUrl = "";
@@ -121,6 +123,38 @@ public class CreatePostActivity extends AppCompatActivity {
         selectImage = findViewById(R.id.selectImage);
         saveDraft = findViewById(R.id.saveDraft);
 
+
+// select time
+        ettime.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Set default time to 12:07 PM
+                int hour = 12;
+                int minute = 7;
+                boolean is24HourFormat = false; // Set to false for 12-hour format
+
+                // Create TimePickerDialog
+                TimePickerDialog timePickerDialog = new TimePickerDialog(
+                        CreatePostActivity.this,
+                        new TimePickerDialog.OnTimeSetListener() {
+                            @Override
+                            public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                                // Convert 24-hour format to 12-hour format
+                                String amPm = (hourOfDay >= 12) ? "PM" : "AM";
+                                int hour12Format = (hourOfDay > 12) ? hourOfDay - 12 : (hourOfDay == 0 ? 12 : hourOfDay);
+
+                                // Format and display the time
+                                String time = String.format("%02d:%02d %s", hour12Format, minute, amPm);
+                                ettime.setText(time);
+                            }
+                        },
+                        hour, minute, is24HourFormat); // false for 12-hour format
+                timePickerDialog.show();
+            }
+        });
+
+
+
         // the DatePickerDialog.OnDateSetListener object
         DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
             @Override
@@ -140,22 +174,14 @@ public class CreatePostActivity extends AppCompatActivity {
         // the DatePickerDialog object
         DatePickerDialog datePickerDialog = new DatePickerDialog(this, dateSetListener, year, month, dayOfMonth);
 
-        //OnClickListener for the etdate EditText
-//        etdate.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                datePickerDialog.show();
-//            }
-//        });
 
 
-        etdate.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        etdate.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onFocusChange(View v, boolean hasFocus) {
+            public void onClick(View v) {
                 datePickerDialog.show();
             }
         });
-
 
 
 //        if update is called

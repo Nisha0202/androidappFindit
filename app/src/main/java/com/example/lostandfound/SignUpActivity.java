@@ -31,12 +31,6 @@ import com.google.firebase.auth.AuthResult;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
-
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.AuthResult;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
@@ -44,7 +38,7 @@ import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 public class SignUpActivity extends AppCompatActivity {
     private EditText etEmail;
     private EditText etUsername;
-    private EditText etPassword, etStId, etRePassword;
+    private EditText etPassword, etRePassword;
     private CheckBox cbRememberMe;
     private Button btnSaveSignUp;
     private String error = "";
@@ -65,27 +59,27 @@ public class SignUpActivity extends AppCompatActivity {
         etRePassword = findViewById(R.id.etRePassword);
         cbRememberMe = findViewById(R.id.cbRememberMe);
         btnSaveSignUp = findViewById(R.id.btnSaveSignUp);
-        etStId = findViewById(R.id.etStId);
+//        etStId = findViewById(R.id.etStId);
 
-        // Automatic stid
-        etEmail.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                String email = etEmail.getText().toString().trim();
-                if (email.contains("@")) {
-                    String emailStId = email.substring(0, email.indexOf("@"));
-                    etStId.setText(emailStId);
-                }
-            }
-        });
+//        // Automatic stid
+//        etEmail.addTextChangedListener(new TextWatcher() {
+//            @Override
+//            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+//            }
+//
+//            @Override
+//            public void onTextChanged(CharSequence s, int start, int before, int count) {
+//            }
+//
+//            @Override
+//            public void afterTextChanged(Editable s) {
+//                String email = etEmail.getText().toString().trim();
+//                if (email.contains("@")) {
+//                    String emailStId = email.substring(0, email.indexOf("@"));
+//                    etStId.setText(emailStId);
+//                }
+//            }
+//        });
 
         btnSaveSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,28 +90,15 @@ public class SignUpActivity extends AppCompatActivity {
                 String password = etPassword.getText().toString().trim();
                 String re_password = etRePassword.getText().toString().trim();
                 String email = etEmail.getText().toString().trim();
-                String stId = etStId.getText().toString().trim();
+//                String stId = etStId.getText().toString().trim();
 
-                if (username.isEmpty() || password.isEmpty() || email.isEmpty() || stId.isEmpty()) {
+                if (username.isEmpty() || password.isEmpty() || email.isEmpty() /*|| stId.isEmpty()*/) {
                     showDialog("Errors", "Please fill all the fields");
                     return;
                 }
 
-                // Extract the student ID from the email
-                String emailStId = "";
-                if (email.contains("@")) {
-                    emailStId = email.substring(0, email.indexOf("@"));
-                } else {
-                    // Handle the case where the email does not contain an "@"
-                    error = error + "Invalid email format";
-                }
-
                 if (!password.equals(re_password)) {
                     error = error + "Passwords don't match\n";
-                }
-                // Check if stId matches the string of email
-                if (!stId.equals(emailStId)) {
-                    error = error + "Invalid Student ID\n";
                 }
 
                 if (username.length() > 15) {
@@ -127,19 +108,19 @@ public class SignUpActivity extends AppCompatActivity {
                     error = error + "Password must be more than 4 characters\n";
                 }
                 if (!isValidEmail(email)) {
-                    error = error + "Please use your university student email.";
+                    error = error + "Please use a valid email.";
                 }
                 if (error.length() > 0) {
                     showDialog("Errors", error);
                     error = "";
                 } else {
-                    // Check if a user with the same stId already exists
-                    reference.child(stId).addListenerForSingleValueEvent(new ValueEventListener() {
+                    // Check if a user with the same email already exists
+                    reference.orderByChild("email").equalTo(email).addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             if (snapshot.exists()) {
-                                // If a user with the same stId already exists, show an error message
-                                showDialog("Errors", "A user with this student ID already exists");
+                                // If a user with the same email already exists, show an error message
+                                showDialog("Errors", "A user with this email already exists");
                             } else {
                                 // Create a new user in Firebase Authentication
                                 mAuth.createUserWithEmailAndPassword(email, password)
@@ -164,8 +145,8 @@ public class SignUpActivity extends AppCompatActivity {
                                                     }
 
                                                     // Save the user to the database
-                                                    User newUser = new User(stId, email, username, password);
-                                                    reference.child(stId).setValue(newUser);
+                                                    User newUser = new User(email, username);
+                                                    reference.child(user.getUid()).setValue(newUser);
 
                                                     // Save the "Remember Me" setting
                                                     SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
@@ -175,8 +156,8 @@ public class SignUpActivity extends AppCompatActivity {
 
                                                     if (cbRememberMe.isChecked()) {
                                                         editor.putBoolean("RememberMe", true);
-                                                        editor.putString("StId", stId);
-                                                        editor.putString("Password", password);
+                                                        editor.putString("StId", email);
+                                                        editor.putBoolean("IsLoggedIn", true);
                                                     } else {
                                                         editor.putBoolean("RememberMe", false);
                                                         editor.remove("StId");
@@ -206,6 +187,7 @@ public class SignUpActivity extends AppCompatActivity {
                                                 }
                                             }
                                         });
+
                             }
                         }
 
@@ -219,7 +201,7 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     public static boolean isValidEmail(String email) {
-        String emailRegex = "^[0-9]{4}-[0-9]{1,2}-[0-9]{2}-[0-9]{3}@std\\.ewubd\\.edu$";
+        String emailRegex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
         Pattern pat = Pattern.compile(emailRegex);
         if (email == null)
             return false;

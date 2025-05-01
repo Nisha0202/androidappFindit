@@ -14,7 +14,7 @@ android:textColor="#2874A6"
     android:text="POSTED"
     android:textStyle="bold"
     android:fontFamily="@font/imprima_regular"
-android:textSize="24sp"/>
+android:textSize="16sp"/>
 
 <Button
 android:id="@+id/dialog_button"
@@ -23,11 +23,11 @@ android:layout_height="wrap_content"
 android:layout_gravity="end"
     android:textColor="#808080"
     android:textStyle="bold"
-    android:textSize="16sp"
+    android:textSize="14sp"
     android:backgroundTint="#D5F5E3"
-    android:paddingVertical="16dp"
-    android:layout_marginTop="10dp"
-    android:gravity="end"
+    android:paddingVertical="0dp"
+    android:layout_marginTop="12dp"
+
 android:text="OK" />
 
     </LinearLayout>

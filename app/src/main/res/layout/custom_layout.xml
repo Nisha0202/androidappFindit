@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="170dp"
-    android:padding="16dp"
+    android:layout_height="wrap_content"
+    android:padding="14dp"
 android:background="#F5F5F5"
     android:orientation="vertical">
 
@@ -11,22 +11,13 @@ android:background="#F5F5F5"
         android:id="@+id/dialogTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="22sp"
+        android:textSize="16sp"
         android:text="Title"
         android:textStyle="bold"
         android:textColor="#444"
         android:layout_marginBottom="8dp"/>
 
-<!--    <TextView-->
-<!--        android:id="@+id/dialogTime"-->
-<!--        android:layout_marginStart="12dp"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="0dp"-->
-<!--        android:textSize="14sp"-->
-<!--        android:text="Hello"-->
-<!--        android:textColor="#808080"-->
-<!--        android:layout_marginBottom="0dp"/>-->
+
 
     <TextView
         android:id="@+id/dialogMessage"
@@ -34,8 +25,9 @@ android:background="#F5F5F5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="0dp"
-        android:textSize="18sp"
+        android:textSize="10sp"
         android:text="Hello"
+        android:layout_marginBottom="4dp"
         android:textColor="#444" />
     <LinearLayout
         android:layout_width="match_parent"
@@ -47,19 +39,19 @@ android:background="#F5F5F5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawableLeft="@drawable/ic_envelope"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="5dp"
             android:textColor="@color/colorPrimary"
             android:clickable="true"
             android:focusable="true"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:layout_marginBottom="8dp" />
         <TextView
             android:id="@+id/dialogEmail"
             android:layout_marginStart="12dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:textSize="18sp"
+            android:layout_marginTop="8dp"
+            android:textSize="14sp"
             android:text="Email"
             android:textColor="#3d3d3d" />
     </LinearLayout>
@@ -71,12 +63,11 @@ android:background="#F5F5F5"
         android:layout_height="wrap_content"
         android:textColor="#808080"
         android:textStyle="bold"
-        android:textSize="18sp"
+        android:textSize="14sp"
         android:backgroundTint="#F5F5F5"
         android:layout_gravity="end"
         android:paddingVertical="0dp"
-        android:gravity="end"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="12dp"
         android:text="Back" />
 
 </LinearLayout>
