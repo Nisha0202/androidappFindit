@@ -4,23 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LogInActivity">
+    tools:context=".LogInActivity"
+    android:fitsSystemWindows="true" >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
         android:orientation="vertical">
-
-        <TextView android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:gravity="center"
-            android:text="Findit"
-            android:background="#efeded"
-            android:textColor="#444"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            android:fontFamily="@font/imprima_regular"/>
 
 
         <LinearLayout
@@ -30,6 +21,17 @@
             android:gravity="center"
             android:orientation="vertical"
             android:padding="20sp">
+
+
+            <TextView android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:gravity="center"
+                android:text="Findit"
+                android:textColor="#28DF45"
+                android:layout_marginBottom="20dp"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/imprima_regular"/>
 
 
             <EditText

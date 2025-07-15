@@ -4,21 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:fitsSystemWindows="true" >
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
         android:orientation="vertical">
-        <TextView android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:gravity="center"
-            android:text="Findit"
-            android:background="#efeded"
-            android:textColor="#444"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            android:fontFamily="@font/imprima_regular"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -26,6 +18,18 @@
             android:orientation="vertical"
             android:padding="20sp"
             android:gravity="center">
+            <TextView android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:gravity="center"
+                android:text="Findit"
+                android:textColor="#28DF45"
+                android:layout_marginBottom="20dp"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/imprima_regular"/>
+
+
+
             <Button
                 android:id="@+id/btnLogin"
                 android:layout_width="match_parent"
@@ -45,7 +49,7 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="#efeded"
                 android:gravity="center"
-
+                android:layout_marginBottom="80dp"
                 android:text="Sign Up"
                 app:cornerRadius="12dp"
                 android:textColor="#28DF45"

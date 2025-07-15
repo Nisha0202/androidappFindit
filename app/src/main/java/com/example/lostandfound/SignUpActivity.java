@@ -144,6 +144,12 @@ public class SignUpActivity extends AppCompatActivity {
                                                                 });
                                                     }
 
+
+
+
+
+
+
                                                     // Save the user to the database
                                                     User newUser = new User(email, username);
                                                     reference.child(user.getUid()).setValue(newUser);

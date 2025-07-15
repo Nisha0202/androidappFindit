@@ -131,13 +131,11 @@ out/
 **/gradle-wrapper.jar
 
 # Miscellaneous
-.DS_Store
 .env
 *.tmp
 *.temp
 *.bak
 *.orig
-*.swp
 *~
 ._*
 
@@ -145,6 +143,8 @@ out/
 .cxx/
 .externalNativeBuild/
 *.aar
+
+app/release/
 
 
 
