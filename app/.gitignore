@@ -1,1 +1,49 @@
-/build
+# Built application files
+*.apk
+*.ap_
+*.aab
+
+# Gradle files
+.gradle/
+build/
+*/build/
+
+# Local configuration
+local.properties
+
+# Signing configs
+*.jks
+*.keystore
+
+# Android Studio
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Caches
+.cxx/
+.externalNativeBuild/
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Google Services (auto-generated)
+google-services.json
+
+# Crashlytics / Firebase
+fabric.properties
+crashlytics.properties
+
+# Kotlin
+*.kotlin_module
+
+# Misc
+*.log
+
+# Jetpack Compose previews
+*.preview
+
+# Environment files
+.env

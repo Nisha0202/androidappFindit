@@ -59,27 +59,6 @@ public class SignUpActivity extends AppCompatActivity {
         etRePassword = findViewById(R.id.etRePassword);
         cbRememberMe = findViewById(R.id.cbRememberMe);
         btnSaveSignUp = findViewById(R.id.btnSaveSignUp);
-//        etStId = findViewById(R.id.etStId);
-
-//        // Automatic stid
-//        etEmail.addTextChangedListener(new TextWatcher() {
-//            @Override
-//            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-//            }
-//
-//            @Override
-//            public void onTextChanged(CharSequence s, int start, int before, int count) {
-//            }
-//
-//            @Override
-//            public void afterTextChanged(Editable s) {
-//                String email = etEmail.getText().toString().trim();
-//                if (email.contains("@")) {
-//                    String emailStId = email.substring(0, email.indexOf("@"));
-//                    etStId.setText(emailStId);
-//                }
-//            }
-//        });
 
         btnSaveSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,7 +69,6 @@ public class SignUpActivity extends AppCompatActivity {
                 String password = etPassword.getText().toString().trim();
                 String re_password = etRePassword.getText().toString().trim();
                 String email = etEmail.getText().toString().trim();
-//                String stId = etStId.getText().toString().trim();
 
                 if (username.isEmpty() || password.isEmpty() || email.isEmpty() /*|| stId.isEmpty()*/) {
                     showDialog("Errors", "Please fill all the fields");
@@ -128,25 +106,25 @@ public class SignUpActivity extends AppCompatActivity {
                                             @Override
                                             public void onComplete(@NonNull Task<AuthResult> task) {
                                                 if (task.isSuccessful()) {
-                                                    // Send verification email
                                                     FirebaseUser user = mAuth.getCurrentUser();
+                                                    // Send verification email
                                                     if (user != null) {
-                                                        user.sendEmailVerification()
-                                                                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                                                    @Override
-                                                                    public void onComplete(@NonNull Task<Void> task) {
-                                                                        if (task.isSuccessful()) {
-                                                                            Toast.makeText(SignUpActivity.this, "Verification email sent", Toast.LENGTH_SHORT).show();
-                                                                        } else {
-                                                                            Toast.makeText(SignUpActivity.this, "Failed to send verification email", Toast.LENGTH_SHORT).show();
+                                                        user.reload().addOnCompleteListener(reloadTask -> {
+                                                            user.sendEmailVerification()
+                                                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                                        @Override
+                                                                        public void onComplete(@NonNull Task<Void> emailTask) {
+                                                                            if (emailTask.isSuccessful()) {
+                                                                                Toast.makeText(SignUpActivity.this, "Verification email sent", Toast.LENGTH_SHORT).show();
+                                                                            } else {
+                                                                                Exception e = emailTask.getException();
+                                                                                Toast.makeText(SignUpActivity.this, "Failed to send verification email: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                                                                                e.printStackTrace();
+                                                                            }
                                                                         }
-                                                                    }
-                                                                });
+                                                                    });
+                                                        });
                                                     }
-
-
-
-
 
 
 
